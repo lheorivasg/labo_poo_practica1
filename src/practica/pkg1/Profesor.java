@@ -75,15 +75,48 @@ public class Profesor extends Persona {
         estados.put("VZ","Veracruz");
         estados.put("ZS","Zacatecas");
 
-        return estados.get(llave);
+    String estado = estados.getOrDefault(llave, "Clave no valida para un CURP");
+
+    System.out.println("La persona es del estado de: " + estado);
+    return estado;        
     }
 
-
-    //public String validarCurp(){}
-
-
-
-
+    public String validarCurp(){
+        String primerApellido = getApellidoPaterno();
+        String segundoApellido = getApellidoMaterno();
+        String nombre = getNombre();
+        
+        
+        String letraApellidoP = primerApellido.substring(0);
+        String letraApellidoM = segundoApellido.substring(0);
+        String letraNombre = nombre.substring(0);
+        
+        
+        char vocalApellidoP = ' ';
+        for(char c: primerApellido.toCharArray()){
+            if("AEIOU".indexOf(Character.toUpperCase(c)) !=-1 ){
+                vocalApellidoP = Character.toUpperCase(c);
+                break;
+            }
+        
+        }
+        
+        if(vocalApellidoP == ' '){
+            return "No se encontro una vocal en el Apellido Paterno";
+        }
+        
+        
+        
+        if(curp.substring(0) == letraApellidoP &&
+           curp.charAt(1) == vocalApellidoP &&
+           curp.substring(2) == letraApellidoM &&
+           curp.substring(3) == letraNombre ) {
+            return "Curp valido";
+        } else {
+            return "Curp no valido";
+        }
+    
+    }
     
     
 }
