@@ -8,10 +8,7 @@ import java.util.HashMap;
 public class Profesor extends Trabajador {
     private String curp;
 
-    public Profesor(String curp, String numEconomico) {
-        super(numEconomico);
-        this.curp = curp;
-    }
+
 
     public Profesor(String curp, String numEconomico, String nombre, String apellidoPaterno, String apellidoMaterno) {
         super(numEconomico, nombre, apellidoPaterno, apellidoMaterno);
@@ -83,20 +80,18 @@ public class Profesor extends Trabajador {
     }
 
     public String validarCurp(){
-        String primerApellido = getApellidoPaterno();
-        String segundoApellido = getApellidoMaterno();
-        String nombre = getNombre();
+        String primerApellido = getApellidoPaterno().toUpperCase();
+        String segundoApellido = getApellidoMaterno().toUpperCase();
+        String nombre = getNombre().toUpperCase();
         
         
-        String letraApellidoP = primerApellido.substring(0);
-        String letraApellidoM = segundoApellido.substring(0);
-        String letraNombre = nombre.substring(0);
-        
-        
+        String letraApellidoP = primerApellido.substring(0,1);
+
         char vocalApellidoP = ' ';
-        for(char c: primerApellido.toCharArray()){
-            if("AEIOU".indexOf(Character.toUpperCase(c)) !=-1 ){
-                vocalApellidoP = Character.toUpperCase(c);
+        for(int i = 1; i < primerApellido.length(); i++){
+            char c = primerApellido.charAt(i);
+            if("AEIOU".indexOf(c) != -1 ){
+                vocalApellidoP = c;
                 break;
             }
         
@@ -106,13 +101,16 @@ public class Profesor extends Trabajador {
             return "No se encontro una vocal en el Apellido Paterno";
         }
         
+        String letraApellidoM = segundoApellido.substring(0,1);
+        String letraNombre = nombre.substring(0,1);
         
         
-        if(curp.substring(0) == letraApellidoP &&
-           curp.charAt(1) == vocalApellidoP &&
-           curp.substring(2) == letraApellidoM &&
-           curp.substring(3) == letraNombre ) {
-            return "Curp valido";
+        
+        if(curp.substring(0,1).equals(letraApellidoP) &&
+           curp.charAt(1) == (vocalApellidoP) &&
+           curp.substring(2,3).equals(letraApellidoM) &&
+           curp.substring(3,4).equals(letraNombre) ) {
+           return "Curp valido";
         } else {
             return "Curp no valido";
         }
