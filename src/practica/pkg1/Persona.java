@@ -3,9 +3,9 @@ package practica.pkg1;
 
 
 public class Persona {
-    private String nombre;
-    private String apellidoPaterno;
-    private String apellidoMaterno;
+    protected String nombre;
+    protected String apellidoPaterno;
+    protected String apellidoMaterno;
 
     public Persona() {
     }
