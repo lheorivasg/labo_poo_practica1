@@ -12,7 +12,7 @@ public class Practica1 {
         System.out.println("Alumno 1 " + Al1.getNombre());
         Al1.generarMatricula();
 
-        System.out.println("\nProfesor 1" + P1.getNombre());
+        System.out.println("\nProfesor 1 " + P1.getNombre());
         System.out.println(P1.obtenerSexo());
         System.out.println(P1.obtenerEstado());
         System.out.println(P1.validarCurp());
