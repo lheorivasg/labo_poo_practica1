@@ -5,16 +5,20 @@ package practica.pkg1;
 import java.util.HashMap;
 
 
-public class Profesor extends Persona {
+public class Profesor extends Trabajador {
     private String curp;
 
-    public Profesor(String curp, String nombre, String apellidoPaterno, String apellidoMaterno) {
-        super(nombre, apellidoPaterno, apellidoMaterno);
+    public Profesor(String curp, String numEconomico) {
+        super(numEconomico);
         this.curp = curp;
     }
 
-    public Profesor() {
+    public Profesor(String curp, String numEconomico, String nombre, String apellidoPaterno, String apellidoMaterno) {
+        super(numEconomico, nombre, apellidoPaterno, apellidoMaterno);
+        this.curp = curp;
     }
+
+    
 
     public String getCurp() {
         return curp;
@@ -26,19 +30,19 @@ public class Profesor extends Persona {
     
     
     public String obtenerSexo(){
-    String llave = curp.substring(10);
+    String llave = curp.substring(10,11);
     HashMap<String, String> sexo = new HashMap<String, String>();
 
     sexo.put("H","Hombre");
     sexo.put("M","Mujer");
     
-    return sexo.get(llave);
+    return sexo.getOrDefault(llave, "Sexo no valido");
 
     }
 
 
     public String obtenerEstado(){
-        String llave = curp.substring(11,12);
+        String llave = curp.substring(11,13);
 
         HashMap<String, String> estados = new HashMap<String, String>();
 
@@ -75,10 +79,7 @@ public class Profesor extends Persona {
         estados.put("VZ","Veracruz");
         estados.put("ZS","Zacatecas");
 
-    String estado = estados.getOrDefault(llave, "Clave no valida para un CURP");
-
-    System.out.println("La persona es del estado de: " + estado);
-    return estado;        
+    return estados.getOrDefault(llave, "Clave no valida para un CURP");
     }
 
     public String validarCurp(){
