@@ -6,6 +6,11 @@
 package practica.pkg1;
 import java.util.Random;
 
+/**
+ * 
+ * @author Equipo 5: Max Alvarez Alvarez, Hugo Rubio Romero y Leonardo Rivas Gutierrez
+ * @version 3
+ */
 public class Administrativo extends Trabajador{
     private String fechaNacimiento;
     

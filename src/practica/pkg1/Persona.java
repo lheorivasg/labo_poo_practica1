@@ -1,7 +1,11 @@
 
 package practica.pkg1;
 
-
+/**
+ * 
+ * @author Equipo 5: Max Alvarez Alvarez, Hugo Rubio Romero y Leonardo Rivas Gutierrez
+ * @version 3
+ */
 public class Persona {
     protected String nombre;
     protected String apellidoPaterno;
