@@ -133,7 +133,8 @@ public class Alumno extends Persona {
 
     
     /**
-     * El metodo que llama construye 
+     * El metodo que llama construye la matricula por medio de los metodos obtenerUnidad() + trimestreIngreso.substring(0, 2) 
+     * + tri()+getRandom(0, 2) + getRandom(0, 4) +getRandom(5, 9) + getRandom(0, 9) + getRandom (0, 9) +getRandom(0, 9)
      */
     public void generarMatricula(){
        String matricula= obtenerUnidad() +trimestreIngreso.substring(0, 2)+ tri()+getRandom(0, 2)+getRandom(0, 4)+getRandom(5, 9)+getRandom(0, 9)+getRandom(0, 9) +getRandom(0, 9); 

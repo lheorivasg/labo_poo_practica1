@@ -8,12 +8,26 @@ import java.util.Random;
 
 public class Administrativo extends Trabajador{
     private String fechaNacimiento;
-
+    
+    
+    /**
+     * Contuctor parametrizado con fechaNacimiento y NumEconomico
+     * @param fechaNacimiento
+     * @param numEconomico 
+     */
     public Administrativo(String fechaNacimiento, String numEconomico) {
         super(numEconomico);
         this.fechaNacimiento = fechaNacimiento;
     }
 
+    /**
+     * Constructor parametrizado con los atributos de la clase y la super clase Trabajador
+     * @param fechaNacimiento
+     * @param numEconomico
+     * @param nombre
+     * @param apellidoPaterno
+     * @param apellidoMaterno 
+     */
     public Administrativo(String fechaNacimiento, String numEconomico, String nombre, String apellidoPaterno, String apellidoMaterno) {
         super(numEconomico, nombre, apellidoPaterno, apellidoMaterno);
         this.fechaNacimiento = fechaNacimiento;
@@ -21,7 +35,10 @@ public class Administrativo extends Trabajador{
     
     
 
-
+/**
+ * 
+ * @return 
+ */
     public String generarRFC(){
         StringBuilder rfc = new StringBuilder();
         
@@ -68,46 +85,23 @@ public class Administrativo extends Trabajador{
     }
 
 
-    
+
+    /**
+     * Metodo para obtener el parametro fechaNacimiento
+     * @return 
+     */
     public String getFechaNacimiento() {
         return fechaNacimiento;
     }
 
+    /**
+     * Metodo para establecer el parametro fechaNacimiento
+     * @param fechaNacimiento 
+     */
     public void setFechaNacimiento(String fechaNacimiento) {
         this.fechaNacimiento = fechaNacimiento;
     }
 
     
 
-    
-    
-//    int numeroAleatorio_1 = getRandom(65, 90);
-//    char a = randomChar(numeroAleatorio_1);
-//    char b = randomChar(numeroAleatorio_1);
-//
-//    int numeroAleatorio = getRandom(0, 9);
-
-//    public void generarRFC() {
-//
-//        String subpaterno = apellidoPaterno.substring(0, 2);
-//        subpaterno = subpaterno.toUpperCase();
-//
-//        String submaterno = apellidoMaterno.substring(0, 1);
-//        submaterno = submaterno.toUpperCase();
-//
-//        String subnombre = nombre.substring(0, 1);
-//        subnombre = subnombre.toUpperCase();
-//
-//        String ultimoaño = fechaNacimiento.substring(6, 8);
-//        String submes = fechaNacimiento.substring(2, 4);
-//        String subdia = fechaNacimiento.substring(0, 2);
-//
-//        System.out.println(subpaterno + submaterno + subnombre + ultimoaño + submes + subdia + a + b + numeroAleatorio);
-//
-//    }
-//
-//    private int getRandom(int i, int i0) {
-//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-//    }
-//
 }
